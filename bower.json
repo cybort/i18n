@@ -1,0 +1,17 @@
+{
+  "name": "uproxy-i18n",
+  "homepage": "https://github.com/uProxy/i18n",
+  "authors": [
+    "jab <jab@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
