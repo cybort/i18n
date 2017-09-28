@@ -1,5 +1,10 @@
 window.UproxyI18n = {
   makeLookUpLanguage: function(availableLanguages, normalize) {
+    availableLanguages = Array.isArray(availableLanguages) ?
+        availableLanguages :
+        typeof availableLanguages.keys === 'function' ?
+            availableLanguages.keys() :
+            Object.keys(availableLanguages);
     normalize = normalize ||
         String.prototype.toLowerCase.call.bind(String.prototype.toLowerCase);
     return function(language) {
