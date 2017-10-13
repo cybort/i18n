@@ -5,7 +5,7 @@
     "jab <jab@users.noreply.github.com>"
   ],
   "description": "",
-  "main": "index.js",
+  "main": "uproxy_i18n.js",
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",
