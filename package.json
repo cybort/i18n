@@ -2,10 +2,9 @@
   "name": "uproxy-i18n",
   "version": "0.0.4",
   "description": "uproxy-i18n",
-  "main": "uproxy_i18n.js",
+  "main": "UproxyI18n",
   "scripts": {
-    "build": "tsc uproxy_i18n.ts && browserify uproxy_i18n.js --standalone UproxyI18n -o uproxy_i18n.js",
-    "test": "echo TODO: write tests"
+    "build": "tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,6 @@
   },
   "homepage": "https://github.com/uProxy/i18n#readme",
   "devDependencies": {
-    "browserify": "^14.4.0",
     "typescript": "^2.5.3"
   }
 }

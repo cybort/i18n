@@ -4,8 +4,10 @@
   "authors": [
     "jab <jab@users.noreply.github.com>"
   ],
-  "description": "",
-  "main": "uproxy_i18n.js",
+  "description": "uproxy-i18n",
+  "main": [
+    "UproxyI18n.js"
+  ],
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",
