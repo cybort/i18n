@@ -48,7 +48,7 @@ function makeLookUpLanguage(availableLanguages: Languages, normalize = toLowerCa
 }
 
 // tslint:disable-next-line:no-any
-(window as any).UproxyI18n = {
+(window as any).OutlineI18n = {
   getBestMatchingLanguage(
     available: LanguageLookup | Languages,
     preferred = browserLanguages
