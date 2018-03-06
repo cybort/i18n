@@ -22,6 +22,7 @@ function makeLookUpLanguage(availableLanguages, normalize) {
         }
     };
 }
+// tslint:disable-next-line:no-any
 window.UproxyI18n = {
     getBestMatchingLanguage: function (available, preferred) {
         if (preferred === void 0) { preferred = browserLanguages; }
