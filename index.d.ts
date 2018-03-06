@@ -1,10 +1,12 @@
-export interface LanguageObj {
+interface LanguageObj {
     id: string;
 }
-export declare type LanguageMap = {
+declare type LanguageMap = {
     [id: string]: LanguageObj;
 };
-export declare type Languages = string[] | LanguageObj[] | LanguageMap;
-export declare type LanguageLookup = (languageId: string) => string | undefined;
-export declare function makeLookUpLanguage(availableLanguages: Languages, normalize?: any): (languageId: string) => string;
-export declare function getBestMatchingLanguage(available: LanguageLookup | Languages, preferred?: string[]): string | undefined;
+declare type Languages = string[] | LanguageObj[] | LanguageMap;
+declare type LanguageLookup = (languageId: string) => string | undefined;
+declare const toLowerCase: any;
+declare const nav: Navigator;
+declare const browserLanguages: string[];
+declare function makeLookUpLanguage(availableLanguages: Languages, normalize?: any): (languageId: string) => string;

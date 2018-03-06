@@ -1,19 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const toLowerCase = String.prototype.toLowerCase.call.bind(String.prototype.toLowerCase);
-const nav = navigator;
-const browserLanguages = (nav.languages || [nav.language]);
-function makeLookUpLanguage(availableLanguages, normalize = toLowerCase) {
-    return (languageId) => {
+var toLowerCase = String.prototype.toLowerCase.call.bind(String.prototype.toLowerCase);
+var nav = navigator;
+var browserLanguages = (nav.languages || [nav.language]);
+function makeLookUpLanguage(availableLanguages, normalize) {
+    if (normalize === void 0) { normalize = toLowerCase; }
+    return function (languageId) {
         languageId = normalize(languageId);
-        const isNonEmptyArray = Array.isArray(availableLanguages) && availableLanguages.length > 0;
-        const isFirstElementString = isNonEmptyArray && availableLanguages[0] instanceof String;
-        const availableLanguageIds = isNonEmptyArray ? (isFirstElementString ? availableLanguages :
-            availableLanguages.map((langObj) => langObj.id)) : Object.keys(availableLanguages);
-        for (const availableLanguageId of availableLanguageIds) {
-            const parts = normalize(availableLanguageId).split('-');
+        var isNonEmptyArray = Array.isArray(availableLanguages) && availableLanguages.length > 0;
+        var isFirstElementString = isNonEmptyArray && availableLanguages[0] instanceof String;
+        var availableLanguageIds = isNonEmptyArray ? (isFirstElementString ? availableLanguages :
+            availableLanguages.map(function (langObj) { return langObj.id; })) : Object.keys(availableLanguages);
+        for (var _i = 0, availableLanguageIds_1 = availableLanguageIds; _i < availableLanguageIds_1.length; _i++) {
+            var availableLanguageId = availableLanguageIds_1[_i];
+            var parts = normalize(availableLanguageId).split('-');
             while (parts.length) {
-                const joined = parts.join('-');
+                var joined = parts.join('-');
                 if (languageId === joined) {
                     return availableLanguageId;
                 }
@@ -22,21 +22,23 @@ function makeLookUpLanguage(availableLanguages, normalize = toLowerCase) {
         }
     };
 }
-exports.makeLookUpLanguage = makeLookUpLanguage;
-function getBestMatchingLanguage(available, preferred = browserLanguages) {
-    const lookUpAvailable = typeof available === 'function' ?
-        available : makeLookUpLanguage(available);
-    for (const candidate of preferred) {
-        const parts = candidate.split('-');
-        while (parts.length) {
-            const joined = parts.join('-');
-            const closest = lookUpAvailable(joined);
-            if (closest) {
-                return closest;
+window.UproxyI18n = {
+    getBestMatchingLanguage: function (available, preferred) {
+        if (preferred === void 0) { preferred = browserLanguages; }
+        var lookUpAvailable = typeof available === 'function' ?
+            available : makeLookUpLanguage(available);
+        for (var _i = 0, preferred_1 = preferred; _i < preferred_1.length; _i++) {
+            var candidate = preferred_1[_i];
+            var parts = candidate.split('-');
+            while (parts.length) {
+                var joined = parts.join('-');
+                var closest = lookUpAvailable(joined);
+                if (closest) {
+                    return closest;
+                }
+                parts.pop();
             }
-            parts.pop();
         }
     }
-}
-exports.getBestMatchingLanguage = getBestMatchingLanguage;
+};
 //# sourceMappingURL=index.js.map
