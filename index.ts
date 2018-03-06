@@ -1,16 +1,16 @@
-export interface LanguageObj {
+interface LanguageObj {
   id: string;
 }
-export type LanguageMap = {[id: string]: LanguageObj};
-export type Languages = string[] | LanguageObj[] | LanguageMap;
-export type LanguageLookup = (languageId: string) => string | undefined;
+type LanguageMap = {[id: string]: LanguageObj};
+type Languages = string[] | LanguageObj[] | LanguageMap;
+type LanguageLookup = (languageId: string) => string | undefined;
 
 const toLowerCase = String.prototype.toLowerCase.call.bind(String.prototype.toLowerCase);
 
 const nav = navigator;
 const browserLanguages = (nav.languages || [nav.language]) as string[];
 
-export function makeLookUpLanguage(availableLanguages: Languages, normalize = toLowerCase) {
+function makeLookUpLanguage(availableLanguages: Languages, normalize = toLowerCase) {
   return (languageId: string): string | undefined => {
     languageId = normalize(languageId);
     const isNonEmptyArray = Array.isArray(availableLanguages) && availableLanguages.length > 0;
@@ -33,21 +33,23 @@ export function makeLookUpLanguage(availableLanguages: Languages, normalize = to
   };
 }
 
-export function getBestMatchingLanguage (
-  available: LanguageLookup | Languages,
-  preferred = browserLanguages
-): string | undefined {
-  const lookUpAvailable = typeof available === 'function' ?
-      available : makeLookUpLanguage(available);
-  for (const candidate of preferred) {
-    const parts = candidate.split('-');
-    while (parts.length) {
-      const joined = parts.join('-');
-      const closest = lookUpAvailable(joined);
-      if (closest) {
-        return closest;
+(<any>window).UproxyI18n = {
+  getBestMatchingLanguage: function(
+    available: LanguageLookup | Languages,
+    preferred = browserLanguages
+  ): string | undefined {
+    const lookUpAvailable = typeof available === 'function' ?
+        available : makeLookUpLanguage(available);
+    for (const candidate of preferred) {
+      const parts = candidate.split('-');
+      while (parts.length) {
+        const joined = parts.join('-');
+        const closest = lookUpAvailable(joined);
+        if (closest) {
+          return closest;
+        }
+        parts.pop();
       }
-      parts.pop();
     }
   }
-}
+};
