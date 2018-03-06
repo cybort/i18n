@@ -2,11 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "module": "none",
-    "declaration": true,
+    "declaration": false,
     "removeComments": false,
     "importHelpers": true,
-    "sourceMap": true,
-    "inlineSourceMap": false,
+    "inlineSourceMap": true,
     "pretty": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
