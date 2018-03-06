@@ -33,8 +33,9 @@ function makeLookUpLanguage(availableLanguages: Languages, normalize = toLowerCa
   };
 }
 
-(<any>window).UproxyI18n = {
-  getBestMatchingLanguage: function(
+// tslint:disable-next-line:no-any
+(window as any).UproxyI18n = {
+  getBestMatchingLanguage(
     available: LanguageLookup | Languages,
     preferred = browserLanguages
   ): string | undefined {
