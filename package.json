@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "tsc -p .",
-    "clean": "rm -rf node_modules/ *.js",
+    "clean": "rm -rf node_modules/",
     "precommit": "tslint -p . --fix; git-clang-format --extensions ts"
   },
   "devDependencies": {
