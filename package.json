@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p .",
     "clean": "rm -rf node_modules/ *.js",
-    "precommit": "tslint -p . --fix; git-clang-format"
+    "precommit": "tslint -p . --fix; git-clang-format --extensions ts"
   },
   "devDependencies": {
     "clang-format": "^1.2.2",
