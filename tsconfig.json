@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": ".",
-    "rootDir": ".",
     "target": "ES6",
     "module": "none",
     "declaration": true,
@@ -9,23 +7,17 @@
     "importHelpers": true,
     "sourceMap": true,
     "inlineSourceMap": false,
-    "listFiles": false,
-    "traceResolution": false,
     "pretty": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "lib": [
-      "ES6",
-      "DOM"
+      "es6",
+      "dom"
     ],
-    "types" : [
-    ]
+    "types": []
   },
   "include": [
-    "*.ts"
-  ],
-  "exclude": [
-    "node_modules/**"
+    "./*.ts"
   ],
   "compileOnSave": false
 }
