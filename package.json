@@ -2,7 +2,6 @@
   "name": "uproxy-i18n",
   "version": "0.0.4",
   "license": "Apache-2.0",
-  "main": "UproxyI18n",
   "scripts": {
     "build": "tsc -p ."
   },
