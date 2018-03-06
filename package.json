@@ -1,21 +1,11 @@
 {
   "name": "uproxy-i18n",
   "version": "0.0.4",
-  "description": "uproxy-i18n",
+  "license": "Apache-2.0",
   "main": "UproxyI18n",
   "scripts": {
     "build": "tsc -p ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uProxy/i18n.git"
-  },
-  "author": "jab <jab@users.noreply.github.com>",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/uProxy/i18n/issues"
-  },
-  "homepage": "https://github.com/uProxy/i18n#readme",
   "devDependencies": {
     "typescript": "^2.5.3"
   }
